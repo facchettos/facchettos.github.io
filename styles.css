@@ -1,0 +1,29 @@
+body{
+    background-color: #FDF3E7;
+    font-family: 'Helvetica';
+    color: MidnightBlue;
+    width: 50%;
+    margin-left: 25%;
+    min-width: 500px;
+}
+
+h1{
+    text-decoration: underline;
+
+}
+
+body img{
+    width: 95%;
+}
+
+a{
+    color: RoyalBlue;
+}
+
+h2{
+    margin-left: 25px;
+}
+
+p{
+    margin-left: 70px;
+}

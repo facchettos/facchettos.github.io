@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>OpenHab2 and fibaro, simple tutorial, no deep shit</title>
+         <link rel="stylesheet" href="styles.css">
+
+    </head>
+    <body>
+        <h1>Introduction</h1>
+        <p>
+            I did all of this procedure on my laptop, which runs ubuntu 16.04. Some parts might differ on other platforms.
+        </p>
+        <h1>OpenHab installation</h1>
+        <p>
+            First,you need to install openhab 2. Just follow the procedure given on the openHab's
+            <a href="http://docs.openhab.org/installation/linux.html">website</a>. It's pretty straight forward.
+            OpenHab will be installed in /usr/share/openhab2/ .
+            Once it's installed, you can launch it either running the command given on the installation page, either by running "sudo /usr/share/openhab2/start.sh"
+        </p>
+        <p>
+            Once you've launched openHab, try to connect to <a href="http://localhost:8080">localhost:8080</a> <br>
+            The first setup might take some time, so don't worry if doesn't display anything first.
+            When you first connect to your openhab, it will ask you to choose a package. I would recommend the expert package so you can access habmin. (you can also choose the standard package and later install habmin though the paper ui (addons>User Interfaces>habmin>install))
+        </p>
+
+        <h1>Binding your Z-stick</h1>
+        <h2>Z stcik permission</h2>
+        <p>
+            This part can get a bit tricky if you don't use the command line very often. (It's not that complicated though, but I had some troubles doing it the first time).
+        </p>
+        <p>
+            Open a terminal and run the following command : <strong>"ls /dev/tty*"</strong>. (you don't really have to do it but it is easier to see what your stick's name is if you do it). Plug your z-stick and run the command again. Your z-stick's name should be something like <strong>ttyACM0</strong>. You now have to modify the permission of the stick (<strong>sudo chmod 777/dev/{yourZstickName}</strong> (alright this is ugly, but i don't remember the exact permission at the time I'm writing this, maybe 754 could be ok)).
+        </p>
+        <p>
+            Next step is to add the user openhab to the dialout group. You can do it running the following command: "sudo usermod -a -G dialout openhab".
+        </p>
+        <h2>Connecting your z-stick to openHab</h2>
+
+        <p>
+            Now, go to the <a href="http://localhost:8080">openhab interface</a> and select PaperUI. <br>
+            Go to addons. Select the bindings section, and search for "Z-wave binding", and install it.
+            Once you've installed it, go to the inbox section, and click on the "search for things" button. <br>
+            Then click on "Z-Wave binding". And then on add manually. You will get to a new page to configure your z-stick. You only need to set one field, but I would recommend you to also change the name of the stick if you have multiple sticks nearby. In the "Serial port" field, enter the absolute path to your Z-Stick (in my case it was /dev/ttyACM0). And your Stick should be up and running now!
+            <img src="Z-wave-config.png" alt="">
+        </p>
+        <h1>Connecting your fibaro sensors</h1>
+        <p>
+            Once you get your Z-Stick connected to OpenHab, you can connect your sensors. You will need to get your sensors close to the z-stick and press the sensor's button three times. It should then appear in your inbox category in the paperUI. You will need to click the button next to the thing's name. Then your thing will appear in the Configuration>Things menu. <img src="Things.png" alt="">
+        </p>
+
+        <h1>Getting information from your sensors</h1>
+        <p>
+            To be able to get data from your sensors, you will need to create a *.items file. The *.items files should be located in /etc/openhab2/items/ directory. You will need to know what kind of data you want to get from your sensor. For a doorsensor for example you can extract a number (0 or 1). You will also need the name of the channel from which you extract the data (some sensors have multiple channels). Here is the syntax that you should follow to write your *.items file <a href="http://docs.openhab.org/configuration/items.html#syntax">Syntax to follow</a>.
+            You will need to put inside the binding part the channel corresponding to your sensor. To get it, go to your things menu in the paperui and select your sensor, then all the channels will be displayed, copy paste it in the corresponding part in your *items file. <br>
+            <img src="control.png" alt="">
+            That's it! you can now see your values from your sensor in the "control" panel.
+        </p>
+
+    </body>
+</html>
