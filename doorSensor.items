@@ -1,0 +1,1 @@
+Number doorSensor1 "Door Node 4 [%s]" <window> { channel="zwave:device:f1cb92c6:node4:sensor_door"}
