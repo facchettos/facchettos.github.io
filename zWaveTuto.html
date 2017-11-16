@@ -9,7 +9,7 @@
     <body>
         <h1>Introduction</h1>
         <p>
-            I did all of this procedure on my laptop, which runs ubuntu 16.04. Some parts might differ on other platforms.
+            I did all of this procedure on my laptop, which runs ubuntu 16.04, this has been tested on a raspberrypi too. Some parts might differ on other platforms.
         </p>
         <h1>OpenHab installation</h1>
         <p>
@@ -30,10 +30,11 @@
             This part can get a bit tricky if you don't use the command line very often. (It's not that complicated though, but I had some troubles doing it the first time).
         </p>
         <p>
-            Open a terminal and run the following command : <strong>"ls /dev/tty*"</strong>. (you don't really have to do it but it is easier to see what your stick's name is if you do it). Plug your z-stick and run the command again. Your z-stick's name should be something like <strong>ttyACM0</strong>. You now have to modify the permission of the stick (<strong>sudo chmod 777/dev/{yourZstickName}</strong> (alright this is ugly, but i don't remember the exact permission at the time I'm writing this, maybe 754 could be ok)).
+            Open a terminal and run the following command : <strong>"ls /dev/tty*"</strong>. (you don't really have to do it but it is easier to see what your stick's name is if you do it). Plug your z-stick and run the command again. Your z-stick's name should be something like <strong>ttyACM0</strong>, depending on the Zstick you are using it can also be <strong>/dev/ttyUSB0</strong>. You now have to modify the permission of the stick (<strong>sudo chmod 777/dev/{yourZstickName}</strong> (alright this is ugly, but i don't remember the exact permission at the time I'm writing this, maybe 754 could be ok)).
         </p>
         <p>
-            Next step is to add the user openhab to the dialout group. You can do it running the following command: "sudo usermod -a -G dialout openhab".
+            Next step is to add the user openhab to the dialout group. You can do it running the following command: "sudo usermod -a -G dialout openhab".<br>
+            If your z-stick was registered as ttyUSB*, you might be able to skip this step, BUT I haven't tested it, so I would not recommend that you do that.
         </p>
         <h2>Connecting your z-stick to openHab</h2>
 
