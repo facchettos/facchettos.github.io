@@ -1,0 +1,5 @@
+Number mSensorBattery1 "Battery [%s]" <battery> { channel="zwave:device:f1cb92c6:node3:battery-level" }
+
+Number temperature "Temperature [%s]" <temperature> { channel="zwave:device:f1cb92c6:node3:sensor_temperature" }
+Number mSensorLumi "Luminance [%s]" <luminance> { channel="zwave:device:f1cb92c6:node3:sensor_luminance" }
+Number motionSensor1 "Motion [%s]" <motion> (mSensor) {channel="zwave:device:f1cb92c6:node3:alarm_motion" }

@@ -1,43 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Jeremy Facchetti</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <title>Jeremy Facchetti</title>
+    <link rel="stylesheet" href="./styles.css" media="screen">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet">
+    <script src="script.js"></script>
 
-        <h1>Jeremy Facchetti</h1>
-        <h2>Computer Science Grad Student, Lulea University of Technology</h2>
-        <img id="profile" src="prof.jpg" alt="">
-        <div class="SideMenu">
-            <a href="./zWaveTuto.html">Z-wave binding</a>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="left-menu" id="menu">
+            <ul>
+                <li> <a href="#"> About me </a>  </li>
+                <li> <a href="#"> Contact</a></li>
+                <li><a href="#"> Projects </a></li>
+                <li><a href="#">Gallery</a></li>
+
+            </ul>
         </div>
-        <h2>About me</h2>
-        <p>Hey there!<br>
-            My name is Jeremy Facchetti, I'm currently studying distributed cloud systems in LTU, Sweden. It is my first year here in Sweden, before coming here I was an exchange student at Oregon State University (my home university was Univeristy of Poitiers, France), for the last year of my bachelor in computer science. I mainly do oop, with a preference to C++ and Java, but I also like to do some python scripts and some bash sometimes.
-        </p>
+        <div class="container" onclick="myFunction(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
 
-        <h2>Education</h2>
-        <p><ul>
-            <li>Current Grad Student at LTU (Master in computer science with specialization in distributed cloud systems)</li>
-            <li>2016-2017 Oregon State University, 3.5GPA</li>
-            <li>2015-2016 Computer science (Second year) Poitiers (6th out of 49)</li>
-            <li>2014-2015 Physics and engineering reinforced in math (freshman year) Poitiers</li>
-            <li>Graduated from High-School in 2014 with high honors</li>
-        </ul></p>
+        <div class="name">
+            Jeremy Facchetti
+        </div>
+    </div>
 
-        <h2>Skills</h2>
-        <ul>
-            <li>Java , maven , junit</li>
-            <li>C , C++ , openMP</li>
-            <li>Cryptography and Security</li>
-            <li>Javascript, node js, html, css</li>
-            <li>OpenGL</li>
-            <li>SQL , Hadoop, mongoDB, ...</li>
-        </ul>
+    <div class="articles">
+        <div class="article">
+            <div class="description">
+                <p>This is a picture that i took on my way to buy bacon, because i love bacon so much, almost as much as saucisson</p>
+            </div>
+            <div class="picture">
+                    <img src="./bigair.jpg" alt="bigair">
+            </div>
+        </div>
+        <div class="article">
+            <div class="descriptio">
 
+            </div>
+            <div class="picture">
+                <img src="./bigair.jpg" alt="bigair">
 
-    </body>
+            </div>
+        </div>
+        <div class="article">
+            <div class="description">
 
+            </div>
+            <div class="picture">
+                <img src="./bigair.jpg" alt="bigair">
+
+            </div>
+        </div>
+
+    </div>
+</body>
 </html>
